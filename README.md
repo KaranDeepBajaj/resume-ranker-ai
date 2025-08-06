@@ -35,3 +35,37 @@ A smart, AI-driven system that ranks resumes based on a given job description us
 
 ## 📁 Folder Structure
 
+resume-ranker-ai/
+│
+├── app/
+│   ├── main.py                # FastAPI or Flask backend
+│   ├── resume_parser.py       # Resume PDF/DOC parser
+│   ├── jd_parser.py           # Job Description text processor
+│   ├── ranker.py              # ML/NLP logic for ranking
+│   ├── utils.py               # Helper functions
+│   └── templates/             # (Flask) HTML templates if needed
+│       └── index.html
+│
+├── frontend/                  # Optional if building frontend separately
+│   ├── public/
+│   └── src/
+│       └── App.js
+│
+├── models/                    # Pretrained or saved models
+│   └── tfidf_vectorizer.pkl
+│
+├── resumes/                   # Sample resumes for testing
+│   └── sample_resume_1.pdf
+│
+├── jds/                       # Sample job descriptions
+│   └── jd_software_engineer.txt
+│
+├── data/                      # Any CSVs or extracted metadata
+│
+├── notebooks/                 # Jupyter notebooks for experiments
+│   └── similarity_experiments.ipynb
+│
+├── requirements.txt           # Python dependencies
+├── .gitignore
+├── README.md
+└── LICENSE
