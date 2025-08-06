@@ -21,7 +21,7 @@ Upload a job description and multiple resumes to see which candidate matches bes
 ---
 
 ### 🚀 Try the live app:
-👉 [https://resume-ranker-ai-1.streamlit.app](https://resume-ranker-ai-1.streamlit.app)
+👉 [https://resume-ranker-ai-1.streamlit.app/)
 
 ---
 
