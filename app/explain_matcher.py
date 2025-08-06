@@ -3,40 +3,36 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
-
-API_URL = "https://api.cohere.ai/v1/generate"
-headers = {
-    "Authorization": f"Bearer {COHERE_API_KEY}",
-    "Content-Type": "application/json"
-}
 
 def get_gpt_explanation(jd_text, resume_text, score):
-    prompt = f"""You are an AI HR Assistant.
-
-Job Description:
-{jd_text.strip()[:600]}
-
-Candidate Resume:
-{resume_text.strip()[:600]}
-
-This resume scored {score:.2f}.
-Explain briefly why this resume is a good or bad fit.
-"""
-
     try:
-        payload = {
-            "model": "command",   # You can also try "command-light"
-            "prompt": prompt,
-            "max_tokens": 150,
-            "temperature": 0.6
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        if not api_key:
+            raise ValueError("Missing OpenRouter API key")
+
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "HTTP-Referer": "https://resume-ranker.ai",  # Can be anything
+            "X-Title": "Resume Ranker AI"
         }
 
-        response = requests.post(API_URL, headers=headers, json=payload)
-        response.raise_for_status()
-        result = response.json()
+        payload = {
+            "model": "mistralai/mistral-7b-instruct",
+            "messages": [
+                {"role": "system", "content": "You are an expert AI recruiter."},
+                {"role": "user", "content": f"""
+Job Description: {jd_text.strip()[:400]}
 
-        return result.get("generations", [{}])[0].get("text", "⚠️ No response generated").strip()
+Resume: {resume_text.strip()[:400]}
+
+This resume scored {score:.2f}. Why is it a good or bad match?
+"""}
+            ]
+        }
+
+        res = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
+        res.raise_for_status()
+        return res.json()["choices"][0]["message"]["content"]
 
     except Exception as e:
         return f"⚠️ Could not generate explanation: {str(e)}"
