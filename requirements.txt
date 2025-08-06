@@ -2,6 +2,7 @@ streamlit
 pdfminer.six
 scikit-learn
 pandas
-python-dotenv
 requests
+python-dotenv
+docx2txt
 cohere
