@@ -1,0 +1,16 @@
+Job Title: Software Engineer – Python & Machine Learning
+
+We are looking for a highly skilled Software Engineer to join our AI development team. The ideal candidate should have strong experience in Python programming, machine learning algorithms, and cloud platforms such as AWS or Azure.
+
+Responsibilities:
+- Build and maintain ML pipelines
+- Collaborate with data scientists to deploy models
+- Develop REST APIs using Flask or FastAPI
+- Integrate with cloud-native services
+
+Requirements:
+- Strong Python programming skills
+- Experience with scikit-learn, pandas, numpy
+- Familiarity with Docker, Git, CI/CD pipelines
+- Knowledge of cloud platforms (AWS, Azure, GCP)
+- Excellent communication and teamwork skills
