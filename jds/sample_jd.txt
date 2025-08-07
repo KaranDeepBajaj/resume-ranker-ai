@@ -1,3 +1,6 @@
+Here’s what you will do -
+
+
 Writing code and scripts to automate various aspects of the development, testing, and deployment processes.
 Developing and maintaining infrastructure as code using tools like Terraform, CloudFormation, or Ansible.
 Designing, implementing, and maintaining CI/CD pipelines to automate the build, test, and deployment processes.
